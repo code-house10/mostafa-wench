@@ -1,0 +1,640 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>شركة الونش لنقل وتغليف العفش</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/base/jquery-ui.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cairo:400&subset=arabic,latin-ext" rel="stylesheet">
+<link href="css/atthecoast.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+<script src="jquery-1.12.4.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="wb.carousel.effects.min.js"></script>
+<script src="popper.min.js"></script>
+<script src="util.min.js"></script>
+<script src="collapse.min.js"></script>
+<script src="dropdown.min.js"></script>
+<script src="scrollspy.min.js"></script>
+<script src="wwb16.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   $('#wb_factsIcon').addClass('visibility-hidden');
+   $('#wb_factsHeading1').addClass('visibility-hidden');
+   $('#wb_factsHeading2').addClass('visibility-hidden');
+   $('#wb_infoBlockImage1').addClass('visibility-hidden');
+   $('#wb_reviewsImage2').addClass('visibility-hidden');
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
+   });
+   var Carousel1Opts =
+   {
+      delay: 1250,
+      duration: 500,
+      easing: 'swing',
+      mode: 'blind',
+      direction: 'horizontal',
+      scalemode: 3,
+      pagination: true,
+      pagination_img_default: 'images/Carousel1-default.png',
+      pagination_img_active: 'images/Carousel1-active.png',
+      pause: null,
+      start: 0
+   };
+   $("#Carousel1").carouseleffects(Carousel1Opts);
+   $("#Carousel1_back a").click(function()
+   {
+      $('#Carousel1').carouseleffects('prev');
+   });
+   $("#Carousel1_next a").click(function()
+   {
+      $('#Carousel1').carouseleffects('next');
+   });
+   $("a[href*='#infoBlock1']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_infoBlock1').offset().top-68 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#infoblock2']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_infoblock2').offset().top-68 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#facts']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_facts').offset().top-68 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#factsLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_factsLayoutGrid').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#skills']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#skills').offset().top }, 600, 'easeOutSine');
+   });
+   $("a[href*='#about']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_about').offset().top-68 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#contact']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_contact').offset().top-68 }, 600, 'easeOutCirc');
+   });
+   function onScrollfactsBookmark()
+   {
+      var $obj = $("#wb_factsBookmark");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('wb_factsIcon', 'puff-in', 0, 500);
+         AnimateCss('wb_factsHeading1', 'puff-in', 500, 500);
+         AnimateCss('wb_factsHeading2', 'puff-in', 1000, 500);
+      }
+   }
+   onScrollfactsBookmark();
+   $(window).scroll(function(event)
+   {
+      onScrollfactsBookmark();
+   });
+   function onScrollinfoBlockBookmark1()
+   {
+      var $obj = $("#wb_infoBlockBookmark1");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('wb_infoBlockImage1', 'animate-fade-in-up', 0, 1000);
+      }
+   }
+   onScrollinfoBlockBookmark1();
+   $(window).scroll(function(event)
+   {
+      onScrollinfoBlockBookmark1();
+   });
+   function onScrollinfoBlockBookmark2()
+   {
+      var $obj = $("#wb_infoBlockBookmark2");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('wb_reviewsImage2', 'animate-fade-in-up', 0, 1000);
+      }
+   }
+   onScrollinfoBlockBookmark2();
+   $(window).scroll(function(event)
+   {
+      onScrollinfoBlockBookmark2();
+   });
+   $('#headerMenu .dropdown-toggle').dropdown({popperConfig:{placement:'right-start',modifiers:{computeStyle:{gpuAcceleration:false}}}});
+   $(document).on('click','.headerMenu-navbar-collapse.show',function(e)
+   {
+      if ($(e.target).is('a') && ($(e.target).attr('class') != 'dropdown-toggle')) 
+      {
+         $(this).collapse('hide');
+      }
+   });
+   function onScrollsocial()
+   {
+      var $obj = $("#wb_social");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimationResume('wb_socialIcon3');
+      }
+   }
+   onScrollsocial();
+   $(window).scroll(function(event)
+   {
+      onScrollsocial();
+   });
+   $("#progressbar_html").progressbar(
+   {
+      value: 100,
+      change: function() 
+      {
+         $("#progressbar_html-label").text($(this).progressbar('value') + '%');
+      }
+   });
+   $("#progressbar_uidesign").progressbar(
+   {
+      value: 99,
+      change: function() 
+      {
+         $("#progressbar_uidesign-label").text($(this).progressbar('value') + '%');
+      }
+   });
+   $("#progressbar_jquery").progressbar(
+   {
+      value: 100,
+      change: function() 
+      {
+         $("#progressbar_jquery-label").text($(this).progressbar('value') + '%');
+      }
+   });
+   $("#progressbar_php").progressbar(
+   {
+      value: 99,
+      change: function() 
+      {
+         $("#progressbar_php-label").text($(this).progressbar('value') + '%');
+      }
+   });
+   var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+   if (iOS)
+   {
+      $('#wb_about,#wb_LayoutGrid1').css('background-attachment', 'scroll');
+   }
+   $(window).on('resize', function()
+   {
+      ResponsiveVideo('LayoutGrid1-video');
+   });
+   ResponsiveVideo('LayoutGrid1-video');
+});
+</script>
+<script>
+$(document).ready(function()
+{
+   var $progressbars = $('.ui-progressbar');
+   
+   $progressbars.each(function() 
+   {
+     var $obj = $(this);
+     $obj.data('value', $obj.progressbar('option', 'value'));
+     $obj.data('done', false);
+     $obj.progressbar('option', 'value', 0);
+   });
+   $(window).bind('scroll', function() 
+   {
+      $progressbars.each(function() 
+      {
+         var $obj = $(this);
+         if (!$obj.data('done') && $(window).scrollTop() + $(window).height() >= $obj.offset().top) 
+         {
+            $obj.data('done', true);
+            $obj.animate({scroll: 1}, 
+            { 
+               duration: 3000, 
+               step: function(now) 
+               {
+                  var $obj = $(this);
+                  var val = Math.round($obj.data('value') * now);
+                  $obj.progressbar('option', 'value', val);
+               }
+            });
+         }
+      });
+   }).triggerHandler('scroll');
+});
+</script>
+</head>
+<body data-spy="scroll">
+<div id="wb_LayoutGrid3">
+<div id="LayoutGrid3">
+<div class="row">
+<div class="col-1">
+<div id="wb_headerMenu">
+<div id="headerMenu" class="headerMenu" style="width:100%;height:auto !important;">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".headerMenu-navbar-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="headerMenu-navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="nav-item">
+<a href="#facts" class="nav-link">اتصل بنا</a>
+</li>
+<li class="nav-item">
+<a href="./index.html#about" class="nav-link">عن الشركة</a>
+</li>
+<li class="nav-item">
+<a href="./index.html#contact" class="nav-link">خدمات الشركة</a>
+</li>
+<li class="nav-item">
+<a href="./index.html#home" class="nav-link">الرئيسية</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_header">
+<div id="header">
+<div class="col-1">
+<div id="wb_Image3">
+<img src="images/logo-londonremovalsuk.png" id="Image3" alt="">
+</div>
+</div>
+<div class="col-2">
+<div id="wb_Text2">
+<span style="color:#000000;font-family:Arial;font-size:13px;"><br></span><span style="color:#000000;font-family:Cairo;font-size:16px;"><strong>شركة الونش لنقل ورفع العفش</strong></span><span style="color:#000000;font-family:Arial;font-size:16px;"><br></span>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid2">
+<div id="LayoutGrid2">
+<div class="row">
+<div class="col-1">
+<div id="wb_Text1">
+<span style="color:#000000;font-family:Cairo;font-size:16px;"><strong>إتصل على&nbsp;&nbsp; <a href="tel:01024116250" class="style1">01024116250</a>&nbsp; -&nbsp; <a href="tel:01118428024" class="style1">01118428024</a></strong></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_Carousel1">
+<div id="Carousel1">
+<div class="frame frame-1">
+<div class="carousel-innerframe">
+</div>
+</div>
+<div class="frame frame-2" style="display:none">
+<div class="carousel-innerframe">
+</div>
+</div>
+<div class="frame frame-3" style="display:none">
+<div class="carousel-innerframe">
+<script>
+var wb_Timer2;
+function TimerStartTimer2()
+{
+   wb_Timer2 = setInterval(function()
+   {
+      var event = null;
+      AnimateCss('homeText', 'transform-spring', 0, 800);
+   }, 8000);
+}
+function TimerStopTimer2()
+{
+   clearInterval(wb_Timer2);
+}
+TimerStartTimer2();
+</script>
+
+</div>
+</div>
+<div class="frame frame-4" style="display:none">
+<div class="carousel-innerframe">
+</div>
+</div>
+</div>
+<div id="Carousel1_back"><a class="carousel-control-prev" role="button"><span class="carousel-control-prev-icon" aria-hidden="true"></span></a></div>
+<div id="Carousel1_next"><a class="carousel-control-next" role="button"><span class="carousel-control-next-icon" aria-hidden="true"></span></a></div>
+</div>
+<div id="wb_infoBlock1">
+<div id="infoBlock1">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_infoBlockBookmark1">
+<a id="infoBlockBookmark1">&nbsp;</a>
+
+</div>
+<div id="wb_infoBlockHeading1">
+<h1 id="infoBlockHeading1">شركة الونش لنقل وتغليف  ورفع العفش</h1>
+</div>
+<div id="wb_infoBlockHeading2">
+<h2 id="infoBlockHeading2">نقل - فك وتركيب العفش - تغليف - رفع العفش</h2>
+</div>
+<div id="wb_infoBlockText1">
+<p style="color:#969696;">تقدم مجموعة شركات الونش لنقل الاثاث افضل الخدمات في هذا المجال على مدار ال10 سنوات الماضيه وتستمر في العطاء والتقدم على امل ارضاء عملاؤنا الاعزاء حيث ان شركة نقل اثاث لدينا تقدم عماله مدربة وذات جوده عاليه من الكفاءه والامانه ولدينا ايضا اسطول متميز من السيارات المجهزه خصيصا لنقل الاثاث حيث انها سيارات مغلقه لحماية الاثاث من التلف والغبار والامطار ولدينا ايضا نجارين متخصصين في فك وتركيب الاثاث علي اعلى مستوى من الحرفيه والمهاره حيث يوجد ايضا فنيين لفك وتركيب جميع انواع التكييفات على مستويات عاليه من الدقه والمهاره حيث تعد شركات نقل عفش لدينا من اهم الشركات الموجوده حاليا التي تستطيع تلبية جميع متطلبات العميل بافضل الطرق واامنها للتواصل معنا يرجى عدم التردد في الاتصال بنا على ارقامنا 01118428024 - 01024116250</p>
+</div>
+<div id="wb_infoBlockShape1">
+<a href="./index.html"><img src="images/img0001.png" id="infoBlockShape1" alt=""></a>
+</div>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_infoBlockImage1">
+<img src="images/159215463_380355319737588_4858522255736302068_n.jpg" id="infoBlockImage1" alt="">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_infoblock2">
+<div id="infoblock2-divider-bottom">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 458.89" preserveAspectRatio="none">
+<path class="divider-fill" style="opacity:0.3" d="M394.87 433.4C488.07 402 572.38 322.71 656.53 241c-73.83 19-145.79 48.57-216.67 77.31-98.09 39.78-199.68 78.93-304.4 86.55 84.78 42.95 173.24 57.58 259.41 28.54zM656.53 241c45.78-11.75 92.27-19.4 139.69-20.19 70.57-1.16 138.4 12.7 203.78 36.37V0c-59.88 17.86-118.67 47.58-174.92 89.39C767.3 132.33 712 187.19 656.53 241zM135.46 404.86C88.86 381.25 43.38 349.08 0 310.9v82.75a378.35 378.35 0 0 0 81.63 12.23 485.13 485.13 0 0 0 53.83-1.02z"/>
+<path class="divider-fill" d="M1000 458.89V257.18c-65.38-23.67-133.21-37.53-203.78-36.37-47.42.79-93.91 8.44-139.69 20.19-84.15 81.71-168.46 161-261.66 192.4-86.17 29-174.63 14.41-259.41-28.54a485.13 485.13 0 0 1-53.83 1A378.35 378.35 0 0 1 0 393.65v65.24z"/>
+</svg></div>
+<div id="infoblock2">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_infoBlockHeading3">
+<h1 id="infoBlockHeading3">خدماتنا</h1>
+</div>
+<div id="wb_infoBlockHeading4">
+<h2 id="infoBlockHeading4">خدمة 24 ساعة</h2>
+</div>
+<div id="wb_infoBlockText2">
+<span style="color:#FFFFFF;font-family:Cairo;font-size:17px;line-height:31px;">شركة نقل اثاث الونش وظيفتها هى تسهيل عملية النقل لمنقولاتكم بدون تكبد اى عناء عليكم ،ولذلك تقدم شركتنا تسهيلاً ، لعملائنا الكرام خدمة النقل الشامل والتى تتضمن فك الاثاث ،وتعبئته،وتغليفه، وتنضيفه،وتركيبه ، وذلك تسهيلاً منا عليكم ،كما تقدم شركتنا أيضاً خدمة اخرى وهى الخدمة الفردية والتى تتضمن خدمة النقل فقط بصوره آمنه وفى اسرع وقت ،نترك لكم الإختيار فى تقديم ما هو أفضل لكم وما يناسب إحتياجاتكم سواء خدمة النقل الشامل أو النقل الفردى ويتم تحديد أسعارنا نظراً للخدمات المطلوبة وذلك تسهيلاً على عملائنا الكرام.<br>01118428024 - 01024116250يمكنكم التواصل معنا فى أى وقت طوال اليوم رداً على استفساراتكم ومعرفة التفاصيل ، شركة الونش من أوائل شركات نقل الاثاث ونقل العفش فى مصر .شركة نقل اثاث الونش الأفضل فى مجالنا وهدفنا إرضائكم وتقديم ما هو افضل لكم ودائماً فى .خدمتكم وراحتكم .</span>
+</div>
+<div id="wb_infoBlockShape2">
+<a href="./index.html"><img src="images/img0003.gif" id="infoBlockShape2" alt=""></a>
+</div>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_infoBlockBookmark2">
+<a id="infoBlockBookmark2">&nbsp;</a>
+
+</div>
+<div id="wb_reviewsImage2">
+<img src="images/162827850_388373455602441_4929454882125942547_n.jpg" id="reviewsImage2" alt="">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_facts">
+<div id="facts">
+<div class="row">
+<div class="col-1">
+<div id="wb_factsIcon">
+<div id="factsIcon"><i class="fa fa-thumbs-o-up"></i></div>
+</div>
+<div id="wb_factsHeading1">
+<h2 id="factsHeading1">نقدم خدمات نقل العفش للمنازل والشركات والمصانع</h2>
+</div>
+<div id="wb_factsHeading2">
+<h2 id="factsHeading2">نعمل طوال ايام الاسبوع - خدمة 24 ساعة</h2>
+</div>
+<div id="wb_factsBookmark">
+<a id="factsBookmark">&nbsp;</a>
+
+</div>
+</div>
+</div>
+</div>
+<div id="facts-divider-top">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 458.89" preserveAspectRatio="none">
+<path class="divider-fill" style="opacity:0.3" d="M394.87 433.4C488.07 402 572.38 322.71 656.53 241c-73.83 19-145.79 48.57-216.67 77.31-98.09 39.78-199.68 78.93-304.4 86.55 84.78 42.95 173.24 57.58 259.41 28.54zM656.53 241c45.78-11.75 92.27-19.4 139.69-20.19 70.57-1.16 138.4 12.7 203.78 36.37V0c-59.88 17.86-118.67 47.58-174.92 89.39C767.3 132.33 712 187.19 656.53 241zM135.46 404.86C88.86 381.25 43.38 349.08 0 310.9v82.75a378.35 378.35 0 0 0 81.63 12.23 485.13 485.13 0 0 0 53.83-1.02z"/>
+<path class="divider-fill" d="M1000 458.89V257.18c-65.38-23.67-133.21-37.53-203.78-36.37-47.42.79-93.91 8.44-139.69 20.19-84.15 81.71-168.46 161-261.66 192.4-86.17 29-174.63 14.41-259.41-28.54a485.13 485.13 0 0 1-53.83 1A378.35 378.35 0 0 1 0 393.65v65.24z"/>
+</svg></div>
+</div>
+<div id="wb_factsLayoutGrid">
+<div id="factsLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_Text8">
+<span style="color:#000000;font-family:Arial;font-size:13px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_Divider1">
+<div id="Divider1-overlay"></div>
+<div id="Divider1">
+<div class="row">
+<div class="col-1">
+<hr id="DividerLine1">
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid4">
+<div id="LayoutGrid4">
+<div class="row">
+<div class="col-1">
+<div id="wb_Text9">
+<span style="color:#000000;font-family:Arial;font-size:13px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid5">
+<div id="LayoutGrid5">
+<div class="row">
+<div class="col-1">
+<div id="wb_Card7">
+   <div id="Card7-card-body">
+      <div id="Card7-card-item0"><i class="fa fa-trophy"></i></div>
+   </div>
+</div>
+<div id="wb_Text4">
+<span style="color:#FFFFFF;font-family:Arial;font-size:21px;line-height:24px;">% 100<br></span><span style="color:#FFFFFF;font-family:Cairo;font-size:20px;line-height:37px;"><strong>أفضل خدمة نقل عفش</strong></span>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_Card1">
+   <div id="Card1-card-body">
+      <div id="Card1-card-item0"><i class="fa fa-money"></i></div>
+   </div>
+</div>
+<div id="wb_Text5">
+<span style="color:#FFFFFF;font-family:Arial;font-size:21px;line-height:24px;">% 100<br></span><span style="color:#FFFFFF;font-family:Cairo;font-size:24px;line-height:45px;"><strong>أفضل اسعار</strong></span>
+</div>
+</div>
+<div class="col-3">
+<div id="wb_Card2">
+   <div id="Card2-card-body">
+      <div id="Card2-card-item0"><i class="fa fa-star"></i></div>
+   </div>
+</div>
+<div id="wb_Text6">
+<span style="color:#FFFFFF;font-family:Arial;font-size:21px;line-height:24px;">% 99.9<br></span><span style="color:#FFFFFF;font-family:Cairo;font-size:24px;line-height:45px;"><strong>رضاء عملائنا</strong></span>
+</div>
+</div>
+<div class="col-4">
+<div id="wb_Card3">
+   <div id="Card3-card-body">
+      <div id="Card3-card-item0"><i class="fa fa-users"></i></div>
+   </div>
+</div>
+<div id="wb_Text7">
+<span style="color:#FFFFFF;font-family:Arial;font-size:21px;line-height:24px;">% 99.9<br></span><span style="color:#FFFFFF;font-family:Cairo;font-size:24px;line-height:45px;"><strong>فريق عمل مميز</strong></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="skills">
+<div id="wb_Heading3">
+<h1 id="Heading3">Skills</h1>
+</div>
+<label for="" id="Label5">أفضل خدمة نقل عفش</label>
+<div id="progressbar_html" >
+<div id="progressbar_html-label">100%</div>
+</div>
+<label for="" id="Label6">فريق عمل مميز</label>
+<div id="progressbar_uidesign" >
+<div id="progressbar_uidesign-label">99%</div>
+</div>
+<label for="" id="Label7">افضل اسعار نقل عفش فى مصر</label>
+<div id="progressbar_jquery" >
+<div id="progressbar_jquery-label">100%</div>
+</div>
+<label for="" id="Label8">رضاء عملائنا</label>
+<div id="progressbar_php" >
+<div id="progressbar_php-label">99%</div>
+</div>
+
+</div>
+<div id="wb_about">
+<div id="about-divider-top">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 138" preserveAspectRatio="none">
+<polygon class="divider-fill" style="opacity:0.2" points="0,136.28 0,36.28 1000,36.28 1000,136.28 500,46.28"  />
+<polygon class="divider-fill" style="opacity:0.4" points="0,104.43 0,36.28 1000,36.28 1000,104.43 500,44.43" />
+<polygon class="divider-fill" style="opacity:0.6" points="0,72.57 0,36.28 1000,36.28 1000,72.57 500,42.57" />
+<rect class="divider-fill" width="1000" height="36.290001" x="0" y="0" />
+</svg></div>
+<div id="about-divider-bottom">
+<svg id="bigHalfCircle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="divider-fill" d="M0 100 C40 0 60 0 100 100 Z" />
+</svg></div>
+<div id="about">
+<div class="row">
+<div class="col-1">
+<div id="wb_Image4">
+<img src="images/117361235_171114901222055_1323009311216674629_n.jpg" id="Image4" alt="">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_contact">
+<div id="contact">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_LayoutGrid1">
+<div id="LayoutGrid1-video"><iframe src="https://www.youtube.com/embed/KUgrBTNbSe4?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=KUgrBTNbSe4" frameborder="0" allowfullscreen></iframe></div>
+<div id="LayoutGrid1-overlay"></div>
+<div id="LayoutGrid1">
+<div class="row">
+<div class="col-1">
+<div id="wb_Heading2">
+<h1 id="Heading2">نسعد بخدمتكم</h1>
+</div>
+<div id="wb_Text3">
+<span style="color:#FFFFFF;font-family:Cairo;font-size:19px;">فى اى وقت</span>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_Image1">
+<img src="images/158898707_3399457056824771_4472752526008109004_o.jpg" id="Image1" alt="">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="Layer1">
+<div id="Layer1_Container">
+<div id="wb_Image2">
+<a href="tel:01024116250"><img src="images/free-phone-call-icon-535-thumb.png" id="Image2" alt=""></a></div>
+</div>
+</div>
+<div id="wb_waitForItTitle">
+<div id="waitForItTitle">
+<div class="row">
+<div class="col-1">
+<div id="wb_waitForItHeading1">
+<h1 id="waitForItHeading1">Wait for it...</h1>
+</div>
+<div id="wb_waitForItHeading2">
+<h2 id="waitForItHeading2">Our new website is coming soon!</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_social">
+<div id="social">
+<div class="row">
+<div class="col-1">
+<div id="wb_socialIcon1">
+<a href="./index.html"><div id="socialIcon1"><i class="fa fa-facebook"></i></div></a>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_socialIcon2">
+<a href="./index.html"><div id="socialIcon2"><i class="fa fa-instagram"></i></div></a>
+</div>
+</div>
+<div class="col-3">
+<div id="wb_socialIcon3">
+<a href="./index.html"><div id="socialIcon3"><i class="fa fa-twitter"></i></div></a>
+</div>
+</div>
+<div class="col-4">
+<div id="wb_socialIcon4">
+<a href="./index.html"><div id="socialIcon4"><i class="fa fa-youtube"></i></div></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
